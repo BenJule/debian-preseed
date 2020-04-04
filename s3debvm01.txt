@@ -461,3 +461,7 @@ d-i preseed/late_command string apt-install zsh; in-target chsh -s /bin/zsh
 d-i preseed/late_command string \
     echo 'benlue ALL=(ALL) NOPASSWD: ALL' > /target/etc/sudoers.d/benlue ; \
     in-target chmod 440 /etc/sudoers.d/benlue ;
+
+# Install OhMyZSH
+d-i preseed/late_command string \
+    in-target wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
